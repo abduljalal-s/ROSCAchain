@@ -1,22 +1,32 @@
-import { Stack } from 'expo-router';
+import Colors from '@/constants/Colors';
+import { Ionicons } from '@expo/vector-icons';
+import { Link, router, Stack } from 'expo-router';
+import { TouchableOpacity } from 'react-native';
 
 export default function RootLayout() {
   return (
+
+
     <Stack>
-      {/* Splash Screen (index.tsx) */}
-      <Stack.Screen
-        name="index"
-        options={{
-          headerShown: false, // Hide the header for the splash screen
-        }}
-      />
-      {/* Login Screen (to be created as login.tsx) */}
-      <Stack.Screen
-        name="Connect Wallet"
-        options={{
-          headerShown: true // Hide the header for the login screen
-        }}
-      />
+          <Stack.Screen name='index' options={{headerShown: false}} />
+          
+    <Stack.Screen
+    name="login"
+    options={{
+      title: '',
+      headerBackTitle: '',
+      headerShadowVisible: false,
+      headerStyle: { backgroundColor: Colors.background },
+      headerLeft: () => (
+        <TouchableOpacity onPress={router.back}>
+          <Ionicons name="arrow-back" size={34} color={Colors.dark} />
+        </TouchableOpacity>
+      ),
+  
+    }}
+  />
+
     </Stack>
+
   );
 }

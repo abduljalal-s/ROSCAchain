@@ -1,16 +1,13 @@
 import Colors from '@/constants/Colors';
 import { defaultStyles } from '@/constants/Styles';
+import { useOAuth } from '@clerk/clerk-expo';
 import { useAssets } from 'expo-asset';
-import { Video } from 'expo-av';
 import { Link } from 'expo-router';
 import React from 'react';
 import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
 
 const index = () => {
-
-    const [assets] = useAssets([require('@/assets/videos/intro.mp4')]);
-
   return (
     <View style={styles.container}>
      <Image
@@ -21,7 +18,7 @@ const index = () => {
 
 
       <View style={styles.buttons}>
-        <Link href={'/Connect wallet'} style={[defaultStyles.pillButton,{flex:1, backgroundColor: Colors.lightGray}]} asChild>
+        <Link href={'/'} style={[defaultStyles.pillButton,{flex:1, backgroundColor: Colors.lightGray}]} asChild>
         
         <TouchableOpacity>
             <Text style={{ color: 'black', fontSize:22, fontWeight:'500'}}>
